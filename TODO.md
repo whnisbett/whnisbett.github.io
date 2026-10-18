@@ -14,12 +14,11 @@ Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 - [ ] About page: longer bio, the "this site" colophon, what the paintings are
 - [ ] Projects page: fill in real projects with links (Quill, store-state tool, resume pipeline, plus side projects)
 - [ ] Reading page: real list with one line each
-- [ ] First real post (replace or unflag the placeholder in src/content/writing)
+- [ ] First post (src/content/writing/*.md)
 - [ ] Two or three more posts so the writing page has a "Start here" list that means something
 
 ## Assets
 - [x] Photo for the home page
-- [ ] Painting for the writing page (replace public/images/writing.svg, update the img path)
 - [ ] Favicon (public/favicon.svg is Astro's default)
 
 ## Build

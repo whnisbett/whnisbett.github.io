@@ -6,10 +6,10 @@ Readme-style single-column site built with [Astro](https://astro.build), deploye
 src/pages/index.astro        home: photo, bio, links
 src/pages/writing/           index (featured above all) and post pages
 src/pages/{projects,reading,about}.astro
-src/content/writing/*.md     posts; see the placeholder post for frontmatter fields
+src/content/writing/*.md     posts; frontmatter fields under "Write a post" below
 src/layouts/Base.astro       <head>, font link, theme bootstrap
 src/styles/global.css        all styling; colours and font are CSS variables at the top
-public/images/               me.jpg (home photo); writing.svg is a placeholder for a painting, replace it and update the img path
+public/images/               me.jpg (home photo)
 ```
 
 ## Run
