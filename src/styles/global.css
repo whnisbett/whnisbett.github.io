@@ -23,7 +23,7 @@ body {
   padding: 2.5rem max(16px, env(safe-area-inset-right, 0px)) 4rem max(16px, env(safe-area-inset-left, 0px));
   -webkit-font-smoothing: antialiased;
 }
-main { position: relative; z-index: 1; max-width: var(--measure); margin: 0 auto; background: var(--bg); padding: 1.5rem 2rem 2rem; box-shadow: 0 0 36px 28px var(--bg); }
+main { position: relative; z-index: 1; max-width: var(--measure); margin: 0 auto; background: var(--bg); padding: 1.5rem 2rem 2rem; }
 #field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
 a { color: var(--fg); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--muted); }
