@@ -25,7 +25,8 @@ Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 - [x] Astro scaffold, pages, writing collection, RSS
 - [x] GitHub Pages deploy via Actions, Node 22
 - [x] Light mode only
-- [ ] Apply the chosen layout and font
+- [x] Apply the chosen layout and font
+- [x] Background: iron-filings dipole field with click waves (src/components/Field.astro)
 - [ ] Open Graph / Twitter meta tags in Base.astro so links unfurl
 - [ ] 404 page (src/pages/404.astro)
 - [ ] Sitemap (@astrojs/sitemap) once there's a final domain

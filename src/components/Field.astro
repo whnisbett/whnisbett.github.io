@@ -1,0 +1,79 @@
+---
+// Background: a grid of iron filings that line up with a bar magnet on the cursor.
+// Click sends a wave through the field. Sits behind <main>, which has solid paper.
+---
+<canvas id="field" aria-hidden="true"></canvas>
+
+<script>
+  const canvas = document.getElementById('field') as HTMLCanvasElement | null;
+  const ctx = canvas?.getContext('2d');
+  if (canvas && ctx) {
+    const GAP = 26, TAU = Math.PI * 2, INK = '17,17,17';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W = 0, H = 0, cols = 0, rows = 0, raf = 0;
+    const mouse = { x: -9999, y: -9999, px: -9999, py: -9999 };
+    const mag = { x: 1, y: 0 };
+    let waves: { x: number; y: number; t: number }[] = [];
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = innerWidth; H = innerHeight;
+      canvas!.width = W * dpr; canvas!.height = H * dpr;
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(W / GAP); rows = Math.ceil(H / GAP);
+      if (reduced) frame();
+    }
+
+    function dash(x: number, y: number, ang: number, len: number, a: number, w: number) {
+      ctx!.strokeStyle = `rgba(${INK},${a})`; ctx!.lineWidth = w;
+      const c = Math.cos(ang) * len / 2, s = Math.sin(ang) * len / 2;
+      ctx!.beginPath(); ctx!.moveTo(x - c, y - s); ctx!.lineTo(x + c, y + s); ctx!.stroke();
+    }
+
+    function frame() {
+      const now = performance.now();
+      ctx!.clearRect(0, 0, W, H);
+      ctx!.lineCap = 'round';
+      if (mouse.x > 0) {
+        const vx = mouse.x - mouse.px, vy = mouse.y - mouse.py, vl = Math.hypot(vx, vy);
+        if (vl > 2) { mag.x += (vx / vl - mag.x) * 0.15; mag.y += (vy / vl - mag.y) * 0.15; }
+      }
+      mouse.px = mouse.x; mouse.py = mouse.y;
+      waves = waves.filter((w) => now - w.t < 2600);
+      const idle = Math.atan2(mag.y, mag.x);
+      for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+        const x = GAP / 2 + i * GAP, y = GAP / 2 + j * GAP;
+        let ang = idle, s = 0;
+        const rx = x - mouse.x, ry = y - mouse.y, r = Math.hypot(rx, ry);
+        if (mouse.x > 0 && r < 420) {
+          const ux = rx / r, uy = ry / r, md = mag.x * ux + mag.y * uy;
+          ang = Math.atan2(3 * md * uy - mag.y, 3 * md * ux - mag.x);
+          s = Math.min(1, 60 / Math.max(r, 30));
+        }
+        let swing = 0, glow = 0;
+        for (const w of waves) {
+          const age = (now - w.t) / 1000, d = Math.hypot(x - w.x, y - w.y), u = (age * 420 - d) / 140;
+          if (u > 0 && u < 1) { const env = Math.sin(u * Math.PI) * Math.exp(-age * 0.9); swing += Math.sin(u * TAU * 1.5) * env * 1.2; glow = Math.max(glow, env); }
+        }
+        dash(x, y, ang + swing, 5 + s * 7 + glow * 4, 0.1 + s * 0.28 + glow * 0.25, 1 + s + glow * 0.5);
+      }
+    }
+
+    function loop() { frame(); raf = requestAnimationFrame(loop); }
+    function start() { if (!reduced && !raf) raf = requestAnimationFrame(loop); }
+    function stop() { cancelAnimationFrame(raf); raf = 0; }
+
+    window.addEventListener('resize', resize);
+    window.addEventListener('pointermove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+    window.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
+    window.addEventListener('pointerdown', (e) => {
+      if ((e.target as Element).closest('a, button, input, textarea, select')) return;
+      waves.push({ x: e.clientX, y: e.clientY, t: performance.now() });
+      if (waves.length > 4) waves.shift();
+      if (reduced) frame();
+    });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+    resize();
+    start();
+  }
+</script>

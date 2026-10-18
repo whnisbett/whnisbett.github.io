@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Field from '../components/Field.astro';
 
 interface Props {
   title?: string;
@@ -24,6 +25,7 @@ const fullTitle = title ? `${title} | ${siteName}` : siteName;
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <Field />
     <main>
       {!home && <a class="home-link" href="/">← home</a>}
       <slot />
