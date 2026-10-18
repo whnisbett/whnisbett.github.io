@@ -4,7 +4,7 @@ Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 
 ## Decide
 - [x] Home page layout: Readme style (minimum was the runner-up)
-- [ ] Font: serif vs sans, then which one (Crimson Pro is the placeholder)
+- [x] Font: Figtree
 - [ ] Custom domain, or stay on whnisbett.github.io
 - [ ] Which painting(s) to use, and where they live (writing page, about page)
 - [ ] Site name in the tab: "William Nisbett" or "Billy Nisbett"

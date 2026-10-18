@@ -5,9 +5,9 @@
   --fg: #111111;
   --muted: #5d5a52;
   --rule: #e3dcc6;
-  --font: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --font: "Figtree", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, Menlo, Consolas, monospace;
-  --size: 1.22rem;
+  --size: 1.08rem;
   --measure: 38em;
   color-scheme: light;
 }
@@ -62,7 +62,7 @@ th, td { border: 1px solid var(--rule); padding: .3em .6em; text-align: left; }
 .meta { color: var(--muted); font-size: .9em; margin-bottom: 2em; }
 
 @media (max-width: 560px) {
-  :root { --size: 1.1rem; }
+  :root { --size: 1rem; }
   body { padding-top: 1.5rem; }
   h1 { font-size: 1.6em; }
   .photo { width: 32%; }
