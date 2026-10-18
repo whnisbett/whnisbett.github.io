@@ -10,7 +10,7 @@ Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 - [ ] Site name in the tab: "William Nisbett" or "Billy Nisbett"
 
 ## Write
-- [ ] Home bio: two short paragraphs, ending with an "if you only read one thing" link
+- [x] Home bio (draft D, wry; confirm Texas/Singapore/Mandarin facts and point "Read this first" at a real post)
 - [ ] About page: longer bio, the "this site" colophon, what the paintings are
 - [ ] Projects page: fill in real projects with links (Quill, store-state tool, resume pipeline, plus side projects)
 - [ ] Reading page: real list with one line each
