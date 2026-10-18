@@ -1,4 +1,4 @@
-/* Readme-style single column. Cream paper by day, deep navy by night.
+/* Readme-style single column on cream paper. Light mode only.
    Change the font by editing --font and the <link> in Base.astro. */
 :root {
   --bg: #FFF8E7;
@@ -10,22 +10,6 @@
   --size: 1.22rem;
   --measure: 38em;
   color-scheme: light;
-}
-:root[data-theme="dark"] {
-  --bg: #000226;
-  --fg: #ffffff;
-  --muted: #b9b9c9;
-  --rule: #2a2c55;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #000226;
-    --fg: #ffffff;
-    --muted: #b9b9c9;
-    --rule: #2a2c55;
-    color-scheme: dark;
-  }
 }
 
 html { background: var(--bg); }
@@ -66,9 +50,8 @@ th, td { border: 1px solid var(--rule); padding: .3em .6em; text-align: left; }
 .home-link { display: inline-block; margin-bottom: 2em; color: var(--muted); text-decoration: none; font-size: .9em; }
 .home-link:hover { color: var(--fg); text-decoration: underline; }
 .contact { color: var(--muted); font-size: .92em; margin: 0 0 1.6em; display: flex; flex-wrap: wrap; gap: .3em .9em; }
-.contact a, .contact button { color: var(--muted); }
-.contact a:hover, .contact button:hover { color: var(--fg); }
-.contact button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--muted); }
+.contact a { color: var(--muted); }
+.contact a:hover { color: var(--fg); }
 .photo { float: right; width: 26%; max-width: 150px; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 2px solid var(--fg); margin: .4em 0 1em 1.4em; }
 .links { list-style: none; padding: 0; margin: 2.2em 0 0; display: flex; flex-direction: column; gap: .35em; font-size: 1.05em; }
 .sig { color: var(--muted); font-style: italic; margin-top: 3em; }
@@ -84,7 +67,4 @@ th, td { border: 1px solid var(--rule); padding: .3em .6em; text-align: left; }
   h1 { font-size: 1.6em; }
   .photo { width: 32%; }
   .posts li { flex-direction: column; gap: 0; margin-bottom: .8em; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  body { transition: background-color .2s, color .2s; }
 }
