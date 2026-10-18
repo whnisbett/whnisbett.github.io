@@ -5,7 +5,7 @@ import Base from '../layouts/Base.astro';
   <img class="photo" src="/images/me.jpg" alt="William Nisbett" width="400" height="400" />
   <h1>William Nisbett</h1>
   <p class="contact">
-    <a href="mailto:william.nisbett@gmail.com">email</a>
+    <a href="mailto:william.nisbett@gmail.com" id="copy-email" data-email="william.nisbett@gmail.com">email</a>
     <a href="https://linkedin.com/in/williamhnisbett">linkedin</a>
     <a href="/rss.xml">rss</a>
   </p>
@@ -21,5 +21,20 @@ import Base from '../layouts/Base.astro';
     <li><a href="/about">About</a></li>
   </ul>
 
-  <p class="sig">I like getting email. If something here was useful, or wrong, tell me.</p>
+  <p class="sig">I like getting email: <a href="mailto:william.nisbett@gmail.com">william.nisbett@gmail.com</a>. If something here was useful, or wrong, tell me.</p>
 </Base>
+
+<script>
+  // Clicking "email" copies the address; the mailto still works on right-click, long-press, or if copying fails.
+  const link = document.getElementById('copy-email');
+  link?.addEventListener('click', (e) => {
+    const email = link.dataset.email ?? '';
+    if (!navigator.clipboard) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(() => {
+      const label = link.textContent;
+      link.textContent = 'copied';
+      setTimeout(() => { link.textContent = label; }, 1500);
+    }).catch(() => { window.location.href = link.href; });
+  });
+</script>
