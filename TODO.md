@@ -3,7 +3,7 @@
 Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 
 ## Decide
-- [ ] Home page layout (see layout explorations; Readme style is the current build)
+- [x] Home page layout: Readme style (minimum was the runner-up)
 - [ ] Font: serif vs sans, then which one (Crimson Pro is the placeholder)
 - [ ] Custom domain, or stay on whnisbett.github.io
 - [ ] Which painting(s) to use, and where they live (writing page, about page)
