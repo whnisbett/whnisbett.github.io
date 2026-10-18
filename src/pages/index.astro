@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+---
+<Base home>
+  <img class="photo" src="/images/me.svg" alt="William Nisbett" width="300" height="300" />
+  <h1>William Nisbett</h1>
+  <p class="contact">
+    <a href="mailto:william.nisbett@gmail.com">email</a>
+    <a href="https://github.com/whnisbett">github</a>
+    <a href="https://linkedin.com/in/williamhnisbett">linkedin</a>
+    <a href="/rss.xml">rss</a>
+    <ThemeToggle />
+  </p>
+
+  <p>I'm a tech lead at <a href="https://augmodo.com">Augmodo</a>, where I founded the computer vision data platform team. Before that I was a founding engineer at Electric Twin, built ad recommender systems at Yelp, and trained as a physicist. I live in London and work with teams in the US.</p>
+  <p>I write about building ML systems in small companies, and about the parts of leading an engineering team that nobody warned me about. If you only read one thing, read <a href="/writing/what-a-cv-data-platform-is">this</a>.</p>
+
+  <ul class="links">
+    <li><a href="/writing">Writing</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/reading">Reading</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+
+  <p class="sig">I like getting email. If something here was useful, or wrong, tell me.</p>
+</Base>
