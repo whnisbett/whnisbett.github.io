@@ -18,7 +18,7 @@ Live at https://whnisbett.github.io. Repo deploys on push to `main`.
 - [ ] Two or three more posts so the writing page has a "Start here" list that means something
 
 ## Assets
-- [ ] Photo for the home page (replace public/images/me.svg, update the img path)
+- [x] Photo for the home page
 - [ ] Painting for the writing page (replace public/images/writing.svg, update the img path)
 - [ ] Favicon (public/favicon.svg is Astro's default)
 

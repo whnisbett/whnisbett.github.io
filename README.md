@@ -9,7 +9,7 @@ src/pages/{projects,reading,about}.astro
 src/content/writing/*.md     posts; see the placeholder post for frontmatter fields
 src/layouts/Base.astro       <head>, font link, theme bootstrap
 src/styles/global.css        all styling; colours and font are CSS variables at the top
-public/images/               me.svg and writing.svg are placeholders; replace with your photo and a painting and update the two <img> paths
+public/images/               me.jpg (home photo); writing.svg is a placeholder for a painting, replace it and update the img path
 ```
 
 ## Run
